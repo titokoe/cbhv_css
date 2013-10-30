@@ -80,7 +80,7 @@ else:
         
         elif filepath == "" and element == -1:
         
-            message.setPropertyValue("text", "Choose a voltage value and a filepath.")
+            message.setPropertyValue("text", "Choose a filepath and an element.")
             
         else:
             

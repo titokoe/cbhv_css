@@ -1,5 +1,7 @@
 from org.csstudio.opibuilder.scriptUtil import PVUtil
 
+display.getWidget("graph_current_channel").clearGraph()
+
 name = widget.getPropertyValue("pv_name")
 
 

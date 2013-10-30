@@ -6,6 +6,7 @@ numberofboxes = 20
 box = name_array[2]
 display.getWidget("text_box").getPV().setValue(box)
 display.getWidget("tabbed_container").setActiveTabIndex(0)
+display.getWidget("led_set_active").setPropertyValue("pv_name", "CB:HV:BOX:%s:is_active" % box)
 
 count = 1
 
