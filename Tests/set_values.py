@@ -8,29 +8,9 @@ element = int(display.getWidget("spinner_element").getValue())
 filepath = display.getWidget("filepath").getValue()
 message = display.getWidget("message")
 numberofboxes = 20
-pv_input = display.getWidget("engage")
 radio_target = display.getWidget("radio_target").getValue()
 radio_source = display.getWidget("radio_source").getValue()
 voltage = int(display.getWidget("spinner_voltage").getValue())
-
-g = open ("/home/epics/streamApp/Tito/cbhv_elements_channel_map.txt", "r")
-maplines = g.readlines()
-count = 0
-mapelementarray = []
-mapboxarray = []
-maplevelarray = []
-mapchannelarray = []
-maplinearray = []
-
-while count < len(maplines):
-    mapline = maplines[count].split()
-    mapelementarray.append(int(mapline[0]))
-    mapboxarray.append(int(mapline[1]))
-    maplevelarray.append(int(mapline[2]))
-    mapchannelarray.append(int(mapline[3]))
-    string = "%s %s %s" % (int(mapline[1]), int(mapline[2]), int(mapline[3]))
-    maplinearray.append(string)    
-    count = count + 1
 
 if radio_source =="" or radio_target == "":
     
@@ -56,15 +36,7 @@ else:
             
         else:
             
-            elementexists = int(element) in mapelementarray
-              
-            if elementexists == False:
-                
-                message.setPropertyValue("text", "Element not in use/ unknown - choose another one")
-                
-            elif elementexists == True:             
-                    
-                pv_input.getPVByName("CB:HV:ELEMENT:%s:set_volt" % (element)).setValue(voltage)
+            PVUtil.createPV("CB:HV:ELEMENT:%s:set_volt" % (element), widget).setValue(voltage)
                     
     ######################## Element -> File ###########################
     
@@ -97,25 +69,16 @@ else:
                 count = count + 1
                 
             file_exist = element in file_elementarray
-            file_element_voltage_exist = element in file_elementarray
-                           
-            if file_exist == False and file_element_voltage_exist == True:
-                              
-                message.setPropertyValue("text", "Element not in use/ unknown - choose another one.")
-                
-            elif file_element_voltage_exist == False and file_exist == True:
+                                       
+            if file_exist == False:
                               
                 message.setPropertyValue("text", "Element not listed in voltage file - choose another one.")
-                
-            elif file_exist == False and file_element_voltage_exist == False:
-                              
-                message.setPropertyValue("text", "Element not in use/ unknown and not listed in voltage file - choose another one.")
             
             else:
                 
                 file_index = file_elementarray.index(element)
                 file_voltage = file_voltagearray[file_index]             
-                pv_input.getPVByName("CB:HV:ELEMENT:%s:set_volt" % (element)).setValue(file_voltage)
+                PVUtil.createPV("CB:HV:ELEMENT:%s:set_volt" % (element), widget).setValue(file_voltage)
                 
 ############################# Box -> selected Value ############################
     if radio_target == "Box":
@@ -169,18 +132,9 @@ else:
                         
                             while channel < 8:
                                 
-                                box_line = "%s %s %s" % (boxcount, level, channel)
-                                
-                                box_line_check = box_line in maplinearray
-                                
-                                if box_line_check == True:
-                                    
-                                    pv_input.getPVByName("CB:HV:BOX:%s:%s:%s:set_volt" % (int(boxcount), int(level), int(channel))).setValue(voltage)
-                                    channel = channel + 1
-                                    
-                                if box_line_check == False:
-                                    
-                                    channel = channel + 1
+                               PVUtil.createPV("CB:HV:BOX:%s:%s:%s:set_volt" % (int(boxcount), int(level), int(channel)), widget).setValue(voltage)
+                               channel = channel + 1
+
                                     
                             level = level + 1                
      
@@ -239,17 +193,11 @@ else:
                                 
                                 box_line_check = box_line in maplinearray
                                 
-                                if box_line_check == True:
+            
                                     
-                                    box_line_index = maplinearray.index(box_line)
-                                    box_line_element = mapelementarray[box_line_index]
-                                    map_file_match = box_line_element in file_elementarray
-                                    
-                                    if map_file_match == True:
-                                    
-                                        file_voltage_index = file_elementarray.index(box_line_element)
+                                    file_voltage_index = file_elementarray.index(box_line_element)
                                         file_voltage = file_voltagearray[file_voltage_index]
-                                        pv_input.getPVByName("CB:HV:BOX:%s:%s:%s:set_volt" % (int(boxcount), int(level), int(channel))).setValue(file_voltage)
+                                        PVUtil.createPV("CB:HV:BOX:%s:%s:%s:set_volt" % (int(boxcount), int(level), int(channel)), widget).setValue(file_voltage)
                                         channel = channel + 1
                                     
                                     if map_file_match == False:
@@ -294,15 +242,17 @@ else:
                 
             else:
                 
-                ch_pv = pv_input.getPVByName("CB:HV:BOX:%s:%s:%s:set_volt" % (ch_box, ch_level, ch_channel))
+                ch_line = "%s %s %s" % (ch_box, ch_level, ch_channel)
                 
-                if ch_pv == "None":
+                check_ch_line_check = ch_line in maplinearray
+                
+                if ch_line_check == False:
                     
                     message.setPropertyValue("text", "Chosen channel not known.")
                     
                 else:
                     
-                    ch_pv.setValue(voltage)
+                    PVUtil.createPV("CB:HV:BOX:%s:%s:%s:set_volt" %(ch_box, ch_level, ch_channel), widget).setValue(voltage)
                     
 ############################# Channel -> File ############################
                     
@@ -356,7 +306,7 @@ else:
                     else:
                         file_voltage_index = file_elementarray.index(ch_element)
                         file_voltage = file_voltagearray[file_voltage_index]
-                        pv_input.getPVByName("CB:HV:BOX:%s:%s:%s:set_volt" % (ch_box, ch_level, ch_channel)).setValue(file_voltage)
+                        PVUtil.createPV("CB:HV:BOX:%s:%s:%s:set_volt" % (ch_box, ch_level, ch_channel), widget).setValue(file_voltage)
                         
                         
                     

@@ -59,7 +59,7 @@ while count3 < numberofboxes:
     
     if box_used == True:
         
-        add_box_string = "\t\t<pv trig=\"false\">CB:HV:BOX:%s:is_active</pv>\n\t\t<pv trig=\"false\">CB:HV:BOX:%s:status</pv>\n" % (mapboxarray[count3],mapboxarray[count3])
+        add_box_string = "\t\t<pv trig=\"false\">CB:HV:BOX:%s:is_active</pv>\n\t\t<pv trig=\"false\">CB:HV:BOX:%s:status</pv>\n" % (boxnumber, boxnumber)
         before_string = before_string + add_box_string
 
 
