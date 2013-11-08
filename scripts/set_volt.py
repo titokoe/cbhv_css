@@ -13,26 +13,6 @@ radio_target = display.getWidget("radio_target").getValue()
 radio_source = display.getWidget("radio_source").getValue()
 voltage = int(display.getWidget("spinner_voltage").getValue())
 
-g = open ("/home/epics/streamApp/Tito/cbhv_elements_channel_map.txt", "r")
-maplines = g.readlines()
-g.close()
-count = 0
-mapelementarray = []
-mapboxarray = []
-maplevelarray = []
-mapchannelarray = []
-maplinearray = []
-
-while count < len(maplines):
-    mapline = maplines[count].split()
-    mapelementarray.append(int(mapline[0]))
-    mapboxarray.append(int(mapline[1]))
-    maplevelarray.append(int(mapline[2]))
-    mapchannelarray.append(int(mapline[3]))
-    string = "%s %s %s" % (int(mapline[1]), int(mapline[2]), int(mapline[3]))
-    maplinearray.append(string)    
-    count = count + 1
-
 if radio_source =="" or radio_target == "":
     
     message.setPropertyValue("text", "Specify source and/or target first")
@@ -57,7 +37,7 @@ else:
             
         else:
             
-            element_exists = widget.getPVByName("CB:HV:ELEMENT:%s:set_volt" % element)
+            element_exists = widget.getPVByName("CB:CB:HV:ELEMENT:%s:SetVolt" % element)
               
             if element_exists == None:
                 
@@ -101,7 +81,7 @@ else:
                 file_voltagearray.append(int(line[1]))  
                 count = count + 1
                 
-            element_exists = widget.getPVByName("CB:HV:ELEMENT:%s:set_volt" % element)
+            element_exists = widget.getPVByName("CB:CB:HV:ELEMENT:%s:SetVolt" % element)
             file_element_voltage_exist = element in file_elementarray
                            
             if element_exists == None and file_element_voltage_exist == True:
@@ -174,7 +154,7 @@ else:
                         
                             while channel < 8:
                                 
-                                box_channel_exists = widget.getPVByName("CB:HV:BOX:%s:%s:%s:set_volt" % (boxcount, level, channel))
+                                box_channel_exists = widget.getPVByName("CB:CB:HV:BOX:%s:%s:%s:SetVolt" % (boxcount, level, channel))
                                 
                                 if box_channel_exists != None:
                                     
@@ -299,10 +279,10 @@ else:
                             
                                 while channel < 8:
                                     
-                                    box_channel_exists = widget.getPVByName("CB:HV:BOX:%s:%s:%s:set_volt" % (boxcount, level, channel))
+                                    box_channel_exists = widget.getPVByName("CB:CB:HV:BOX:%s:%s:%s:SetVolt" % (boxcount, level, channel))
                                     
                                     if box_channel_exists != None:
-                                        
+                                    
                                         box_line = "%s %s %s" % (boxcount, level, channel)
                                         box_line_index = maplinearray.index(box_line)
                                         box_line_element = mapelementarray[box_line_index]
@@ -357,7 +337,7 @@ else:
                 
             else:
                 
-                ch_exists = widget.getPVByName("CB:HV:BOX:%s:%s:%s:set_volt" % (ch_box, ch_level, ch_channel))
+                ch_exists = widget.getPVByName("CB:CB:HV:BOX:%s:%s:%s:SetVolt" % (ch_box, ch_level, ch_channel))
                 
                 if ch_exists == None:
                     
@@ -466,7 +446,7 @@ else:
                         file_voltagearray.append(int(line[1]))  
                         count = count + 1
                     
-                    ch_exists = widget.getPVByName("CB:HV:BOX:%s:%s:%s:set_volt" % (ch_box, ch_level, ch_channel))
+                    ch_exists = widget.getPVByName("CB:CB:HV:BOX:%s:%s:%s:SetVolt" % (ch_box, ch_level, ch_channel))
                 
                     if ch_exists == None:
                         
@@ -489,13 +469,49 @@ else:
                             file_voltage = file_voltagearray[file_voltage_index]
                             ch_exists.setValue(file_voltage)
                         
-                        
-                    
-                    
-            
-        
-                            
+################################# from file ###########################
 
+    if radio_target == "From file" and radio_source == "File":
+        
+        filepath = display.getWidget("filepath").getValue()
+
+        check_filepath = os.path.isfile(filepath)
+
+        if check_filepath == True:
+    
+            
+
+            f = open (filepath, "r")
+            file_element_voltages = f.readlines()
+            f.close()
+            count = 0
+            file_elementarray = []
+            file_voltagearray = []
+    
+            while count < len(file_element_voltages):
+                line = file_element_voltages[count].split()
+                file_element = int(line[0])
+                file_voltage = int(line[1]) 
+                pv = display.getWidget("engage").getPVByName("CB:CB:HV:ELEMENT:%s:SetVolt" % file_element)
+                
+                if pv != None:
+                    
+                    pv.setValue(file_voltage)
+                    
+                count = count + 1
+                            
+        else:
+        
+            message.setPropertyValue("text", "No file specified or file no longer exists.")
+                            
+    else:
+        
+        message.setPropertyValue("text", "Wrong source target combination!")                 
+                            
                     
                 
-           
+                                    
+        
+                            
+                        
+                   

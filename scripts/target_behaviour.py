@@ -1,6 +1,6 @@
 from org.csstudio.opibuilder.scriptUtil import PVUtil
 
-value = display.getWidget("radio_target").getValue()
+value = widget.getValue()
 
 if value == "Box":
     
@@ -14,8 +14,15 @@ elif value == "Channel":
     display.getWidget("group_channel").setPropertyValue("enabled", True)
     display.getWidget("group_element").setPropertyValue("enabled", False)
     
-else:
+elif value == "Element":
     
     display.getWidget("group_box").setPropertyValue("enabled", False)
     display.getWidget("group_channel").setPropertyValue("enabled", False)
     display.getWidget("group_element").setPropertyValue("enabled", True)
+    
+elif value == "From file":
+    
+    display.getWidget("group_box").setPropertyValue("enabled", False)
+    display.getWidget("group_channel").setPropertyValue("enabled", False)
+    display.getWidget("group_element").setPropertyValue("enabled", False)
+    display.getWidget("radio_source").getPV().setValue("File")

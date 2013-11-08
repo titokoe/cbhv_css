@@ -1,7 +1,7 @@
 from org.csstudio.opibuilder.scriptUtil import PVUtil
 from org.csstudio.opibuilder.scriptUtil import ColorFontUtil
 
-value = display.getWidget("radio_source").getValue()
+value = widget.getValue()
 
 if value == "selected Value":
     

@@ -9,7 +9,7 @@ box = name_array[2]
 box = int(box)
 display.getWidget("text_box").getPV().setValue(box)
 display.getWidget("tabbed_container").setActiveTabIndex(0)
-display.getWidget("led_set_active").setPropertyValue("pv_name", "CB:HV:BOX:%s:is_active" % box)
+display.getWidget("led_set_active").setPropertyValue("pv_name", "CB:CB:HV:BOX:%s:IsActive" % box)
 
 count = 1
 
@@ -20,7 +20,9 @@ while count <= numberofboxes:
 
 widget.setPropertyValue("border_width", "4")
 
-check_box = display.getWidget("engage").getPVByName("CB:HV:BOX:%s:status" % box)
+check_box = display.getWidget("engage").getPVByName("CB:CB:HV:BOX:%s:Status" % box)
+
+print check_box
 
 if check_box != None:
 
@@ -32,12 +34,12 @@ if check_box != None:
         
         while channel < 8:
             
-            check_channel = display.getWidget("engage").getPVByName("CB:HV:BOX:%s:%s:%s:volt_variance" % (box, level, channel))
+            check_channel = display.getWidget("engage").getPVByName("CB:CB:HV:BOX:%s:%s:%s:VoltVariance" % (box, level, channel))
             
             if check_channel != None:
             
                 widgetname = "mon_led_%s_%s" % (level, channel)
-                pvname = "CB:HV:BOX:%s:%s:%s:volt_variance" % (box, level, channel)
+                pvname = "CB:CB:HV:BOX:%s:%s:%s:VoltVariance" % (box, level, channel)
                 
                 display.getWidget(widgetname).setPropertyValue("enabled", True)
                 display.getWidget(widgetname).setPropertyValue("pv_name", pvname)
