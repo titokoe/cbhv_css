@@ -1,4 +1,5 @@
 from org.csstudio.opibuilder.scriptUtil import PVUtil
+from org.csstudio.opibuilder.scriptUtil import GUIUtil
 import os
 
 filepath = display.getWidget("filepath").getValue()

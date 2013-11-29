@@ -4,7 +4,7 @@
   <macros>
     <include_parent_macros>true</include_parent_macros>
   </macros>
-  <wuid>-12f90462:141e4d5b469:-5415</wuid>
+  <wuid>-7a56982c:1426aa47700:-53e3</wuid>
   <boy_version>3.2.7.20130827</boy_version>
   <scripts />
   <show_ruler>true</show_ruler>
@@ -32,130 +32,56 @@
   <actions hook="false" hook_all="false" />
   <y>-1</y>
   <x>-1</x>
-  <widget typeId="org.csstudio.opibuilder.widgets.ActionButton" version="2.0.0">
-    <border_alarm_sensitive>false</border_alarm_sensitive>
+  <widget typeId="org.csstudio.opibuilder.widgets.TextUpdate" version="1.0.0">
+    <border_alarm_sensitive>true</border_alarm_sensitive>
     <visible>true</visible>
-    <wuid>-11c224be:142223b95d3:-7888</wuid>
+    <vertical_alignment>1</vertical_alignment>
+    <show_units>true</show_units>
+    <wuid>-7a56982c:1426aa47700:-5374</wuid>
+    <auto_size>false</auto_size>
+    <rotation_angle>0.0</rotation_angle>
     <scripts />
-    <height>55</height>
-    <style>1</style>
-    <name>Action Button</name>
+    <height>67</height>
+    <name>Text Update</name>
     <forecolor_alarm_sensitive>false</forecolor_alarm_sensitive>
     <scale_options>
       <width_scalable>true</width_scalable>
       <height_scalable>true</height_scalable>
       <keep_wh_ratio>false</keep_wh_ratio>
     </scale_options>
-    <pv_name></pv_name>
+    <format_type>0</format_type>
+    <precision_from_pv>true</precision_from_pv>
+    <transparent>false</transparent>
+    <pv_name>loc://test</pv_name>
+    <background_color>
+      <color red="255" green="255" blue="255" />
+    </background_color>
     <foreground_color>
       <color red="0" green="0" blue="0" />
     </foreground_color>
-    <widget_type>Action Button</widget_type>
+    <widget_type>Text Update</widget_type>
     <enabled>true</enabled>
-    <text>$(actions)</text>
+    <text>######</text>
+    <backcolor_alarm_sensitive>false</backcolor_alarm_sensitive>
+    <precision>0</precision>
     <font>
       <opifont.name fontName="Times New Roman" height="10" style="0">Default</opifont.name>
     </font>
-    <width>151</width>
+    <width>301</width>
     <border_style>0</border_style>
-    <push_action_index>0</push_action_index>
-    <image></image>
     <rules />
     <pv_value />
-    <toggle_button>false</toggle_button>
     <border_width>1</border_width>
     <border_color>
       <color red="0" green="128" blue="255" />
     </border_color>
+    <horizontal_alignment>0</horizontal_alignment>
+    <actions hook="false" hook_all="false" />
     <y>252</y>
-    <actions hook="false" hook_all="true">
-      <action type="WRITE_PV">
-        <pv_name>loc://test("on")</pv_name>
-        <value>off</value>
-        <timeout>1</timeout>
-        <confirm_message></confirm_message>
-        <description></description>
-      </action>
-    </actions>
+    <wrap_words>false</wrap_words>
     <tooltip>$(pv_name)
 $(pv_value)</tooltip>
-    <x>222</x>
-  </widget>
-  <widget typeId="org.csstudio.opibuilder.widgets.LED" version="1.0.0">
-    <border_alarm_sensitive>true</border_alarm_sensitive>
-    <visible>true</visible>
-    <wuid>-7c4d677c:1425609ec35:-7f7a</wuid>
-    <scripts />
-    <square_led>false</square_led>
-    <on_color>
-      <color red="0" green="255" blue="0" />
-    </on_color>
-    <height>43</height>
-    <data_type>0</data_type>
-    <name>LED</name>
-    <forecolor_alarm_sensitive>false</forecolor_alarm_sensitive>
-    <show_boolean_label>false</show_boolean_label>
-    <scale_options>
-      <width_scalable>true</width_scalable>
-      <height_scalable>true</height_scalable>
-      <keep_wh_ratio>true</keep_wh_ratio>
-    </scale_options>
-    <off_color>
-      <color red="0" green="100" blue="0" />
-    </off_color>
-    <pv_name>loc://test("on")</pv_name>
-    <background_color>
-      <color red="240" green="240" blue="240" />
-    </background_color>
-    <foreground_color>
-      <color red="192" green="192" blue="192" />
-    </foreground_color>
-    <off_label>OFF</off_label>
-    <widget_type>LED</widget_type>
-    <enabled>true</enabled>
-    <backcolor_alarm_sensitive>false</backcolor_alarm_sensitive>
-    <font>
-      <opifont.name fontName="Times New Roman" height="10" style="0">Default</opifont.name>
-    </font>
-    <width>43</width>
-    <border_style>0</border_style>
-    <effect_3d>true</effect_3d>
-    <rules>
-      <rule name="inactive" prop_id="enabled" out_exp="false">
-        <exp bool_exp="pvStr0==&quot;off&quot;">
-          <value>false</value>
-        </exp>
-        <pv trig="true">loc://test("0")</pv>
-      </rule>
-      <rule name="Rule" prop_id="off_color" out_exp="false">
-        <exp bool_exp="pvStr0==&quot;off&quot;">
-          <value>
-            <color red="0" green="0" blue="0" />
-          </value>
-        </exp>
-        <pv trig="true">loc://test("0")</pv>
-      </rule>
-    </rules>
-    <pv_value />
-    <bit>-1</bit>
-    <border_width>1</border_width>
-    <on_label>ON</on_label>
-    <border_color>
-      <color red="0" green="128" blue="255" />
-    </border_color>
-    <actions hook="true" hook_all="true">
-      <action type="WRITE_PV">
-        <pv_name>loc://test("on")</pv_name>
-        <value>on</value>
-        <timeout>1</timeout>
-        <confirm_message></confirm_message>
-        <description></description>
-      </action>
-    </actions>
-    <y>48</y>
-    <tooltip>$(pv_name)
-$(pv_value)</tooltip>
-    <x>222</x>
+    <x>48</x>
   </widget>
   <widget typeId="org.csstudio.opibuilder.widgets.TextInput" version="2.0.0">
     <border_alarm_sensitive>false</border_alarm_sensitive>
@@ -163,7 +89,7 @@ $(pv_value)</tooltip>
     <multiline_input>false</multiline_input>
     <auto_size>false</auto_size>
     <scripts />
-    <height>37</height>
+    <height>103</height>
     <forecolor_alarm_sensitive>false</forecolor_alarm_sensitive>
     <precision_from_pv>true</precision_from_pv>
     <background_color>
@@ -175,14 +101,14 @@ $(pv_value)</tooltip>
     <font>
       <opifont.name fontName="Times New Roman" height="10" style="0">Default</opifont.name>
     </font>
-    <width>163</width>
+    <width>415</width>
     <border_style>3</border_style>
     <pv_value />
     <maximum>Infinity</maximum>
     <border_width>1</border_width>
     <minimum>-Infinity</minimum>
     <show_units>true</show_units>
-    <wuid>-7c4d677c:1425609ec35:-7b1e</wuid>
+    <wuid>-7a56982c:1426aa47700:-52ea</wuid>
     <rotation_angle>0.0</rotation_angle>
     <style>0</style>
     <name>Text Input</name>
@@ -194,7 +120,7 @@ $(pv_value)</tooltip>
     </scale_options>
     <selector_type>0</selector_type>
     <transparent>false</transparent>
-    <pv_name>loc://test("on")</pv_name>
+    <pv_name>loc://test</pv_name>
     <foreground_color>
       <color red="0" green="0" blue="0" />
     </foreground_color>
@@ -207,9 +133,9 @@ $(pv_value)</tooltip>
     <border_color>
       <color red="0" green="128" blue="255" />
     </border_color>
-    <y>156</y>
+    <y>48</y>
     <actions hook="false" hook_all="false" />
-    <x>96</x>
+    <x>36</x>
     <tooltip>$(pv_name)
 $(pv_value)</tooltip>
   </widget>
