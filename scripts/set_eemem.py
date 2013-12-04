@@ -142,10 +142,7 @@ elif set_eemem_choice == "Cards":
                     
 
                 
-                display.getWidget("set_eemem").getPVByName("CB:CB:HV:BOX:%s:UnprotectEemem" % (cardscount)).setValue("go")
-                
- #               time.sleep(10)
-                
+                display.getWidget("set_eemem").getPVByName("CB:CB:HV:BOX:%s:UnprotectEememCards" % (cardscount)).setValue("go")                
                 display.getWidget("set_eemem").getPVByName("CB:CB:HV:BOX:%s:SetCards" % (cardscount)).setValue("%s" % new_cards)
                 display.getWidget("set_eemem").getPVByName("CB:CB:HV:BOX:%s:SetM0.VAL" % (cardscount)).setValue("0")
                 display.getWidget("set_eemem").getPVByName("CB:CB:HV:BOX:%s:SetM1.VAL" % (cardscount)).setValue("0")
@@ -157,9 +154,9 @@ elif set_eemem_choice == "Cards":
                 display.getWidget("set_eemem").getPVByName("CB:CB:HV:BOX:%s:SetN2.VAL" % (cardscount)).setValue("0")
                 display.getWidget("set_eemem").getPVByName("CB:CB:HV:BOX:%s:SetN3.VAL" % (cardscount)).setValue("0")
                 display.getWidget("set_eemem").getPVByName("CB:CB:HV:BOX:%s:SetN4.VAL" % (cardscount)).setValue("0")
-                display.getWidget("set_eemem").getPVByName("CB:CB:HV:BOX:%s:ReloadEemem" % (cardscount)).setValue("go")
-                display.getWidget("set_eemem").getPVByName("CB:CB:HV:BOX:%s:ProtectEemem" % (cardscount)).setValue("go")
-                display.getWidget("set_eemem").getPVByName("CB:CB:HV:BOX:%s:PrintEemem" % (cardscount)).setValue("go")
+                display.getWidget("set_eemem").getPVByName("CB:CB:HV:BOX:%s:ReloadEememCards" % (cardscount)).setValue("go")
+                display.getWidget("set_eemem").getPVByName("CB:CB:HV:BOX:%s:ProtectEememCards" % (cardscount)).setValue("go")
+                display.getWidget("set_eemem").getPVByName("CB:CB:HV:BOX:%s:PrintEememCards" % (cardscount)).setValue("go")
                     
             if empty_cards == numberofboxes:
                 

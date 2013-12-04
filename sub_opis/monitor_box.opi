@@ -71,7 +71,7 @@
       <color red="0" green="128" blue="255" />
     </border_color>
     <y>6</y>
-    <actions hook="false" hook_all="false" />
+    <actions hook="true" hook_all="true" />
     <x>6</x>
     <tooltip></tooltip>
     <widget typeId="org.csstudio.opibuilder.widgets.Label" version="1.0.0">
@@ -305,6 +305,15 @@ $(pv_value)</tooltip>
           <pv trig="true">$(P):$(BOX):$(name):VoltVariance</pv>
           <pv trig="true">$(P):$(BOX):$(name):InUse</pv>
         </rule>
+        <rule name="ChannelInUse" prop_id="enabled" out_exp="false">
+          <exp bool_exp="pvStr0==&quot;1&quot;">
+            <value>true</value>
+          </exp>
+          <exp bool_exp="pvStr0==&quot;0&quot;">
+            <value>false</value>
+          </exp>
+          <pv trig="true">$(P):$(BOX):$(name):InUse</pv>
+        </rule>
       </rules>
       <pv_value />
       <bit>-1</bit>
@@ -314,11 +323,11 @@ $(pv_value)</tooltip>
         <color red="0" green="128" blue="255" />
       </border_color>
       <actions hook="true" hook_all="true">
-        <action type="EXECUTE_PYTHONSCRIPT">
-          <path>../scripts/in_use_change_value.py</path>
-          <scriptText><![CDATA[from org.csstudio.opibuilder.scriptUtil import PVUtil
-]]></scriptText>
-          <embedded>false</embedded>
+        <action type="WRITE_PV">
+          <pv_name>loc://monitor_channel("")</pv_name>
+          <value>$(name)</value>
+          <timeout>10</timeout>
+          <confirm_message></confirm_message>
           <description></description>
         </action>
       </actions>
@@ -425,6 +434,15 @@ $(pv_value)</tooltip>
           <pv trig="true">$(P):$(BOX):$(name):VoltVariance</pv>
           <pv trig="true">$(P):$(BOX):$(name):InUse</pv>
         </rule>
+        <rule name="ChannelInUse" prop_id="enabled" out_exp="false">
+          <exp bool_exp="pvStr0==&quot;1&quot;">
+            <value>true</value>
+          </exp>
+          <exp bool_exp="pvStr0==&quot;0&quot;">
+            <value>false</value>
+          </exp>
+          <pv trig="true">$(P):$(BOX):$(name):InUse</pv>
+        </rule>
       </rules>
       <pv_value />
       <bit>-1</bit>
@@ -434,11 +452,11 @@ $(pv_value)</tooltip>
         <color red="0" green="128" blue="255" />
       </border_color>
       <actions hook="true" hook_all="true">
-        <action type="EXECUTE_PYTHONSCRIPT">
-          <path>../scripts/in_use_change_value.py</path>
-          <scriptText><![CDATA[from org.csstudio.opibuilder.scriptUtil import PVUtil
-]]></scriptText>
-          <embedded>false</embedded>
+        <action type="WRITE_PV">
+          <pv_name>loc://monitor_channel("")</pv_name>
+          <value>$(name)</value>
+          <timeout>10</timeout>
+          <confirm_message></confirm_message>
           <description></description>
         </action>
       </actions>
@@ -545,6 +563,15 @@ $(pv_value)</tooltip>
           <pv trig="true">$(P):$(BOX):$(name):VoltVariance</pv>
           <pv trig="true">$(P):$(BOX):$(name):InUse</pv>
         </rule>
+        <rule name="ChannelInUse" prop_id="enabled" out_exp="false">
+          <exp bool_exp="pvStr0==&quot;1&quot;">
+            <value>true</value>
+          </exp>
+          <exp bool_exp="pvStr0==&quot;0&quot;">
+            <value>false</value>
+          </exp>
+          <pv trig="true">$(P):$(BOX):$(name):InUse</pv>
+        </rule>
       </rules>
       <pv_value />
       <bit>-1</bit>
@@ -554,11 +581,11 @@ $(pv_value)</tooltip>
         <color red="0" green="128" blue="255" />
       </border_color>
       <actions hook="true" hook_all="true">
-        <action type="EXECUTE_PYTHONSCRIPT">
-          <path>../scripts/in_use_change_value.py</path>
-          <scriptText><![CDATA[from org.csstudio.opibuilder.scriptUtil import PVUtil
-]]></scriptText>
-          <embedded>false</embedded>
+        <action type="WRITE_PV">
+          <pv_name>loc://monitor_channel("")</pv_name>
+          <value>$(name)</value>
+          <timeout>10</timeout>
+          <confirm_message></confirm_message>
           <description></description>
         </action>
       </actions>
@@ -665,6 +692,15 @@ $(pv_value)</tooltip>
           <pv trig="true">$(P):$(BOX):$(name):VoltVariance</pv>
           <pv trig="true">$(P):$(BOX):$(name):InUse</pv>
         </rule>
+        <rule name="ChannelInUse" prop_id="enabled" out_exp="false">
+          <exp bool_exp="pvStr0==&quot;1&quot;">
+            <value>true</value>
+          </exp>
+          <exp bool_exp="pvStr0==&quot;0&quot;">
+            <value>false</value>
+          </exp>
+          <pv trig="true">$(P):$(BOX):$(name):InUse</pv>
+        </rule>
       </rules>
       <pv_value />
       <bit>-1</bit>
@@ -674,11 +710,11 @@ $(pv_value)</tooltip>
         <color red="0" green="128" blue="255" />
       </border_color>
       <actions hook="true" hook_all="true">
-        <action type="EXECUTE_PYTHONSCRIPT">
-          <path>../scripts/in_use_change_value.py</path>
-          <scriptText><![CDATA[from org.csstudio.opibuilder.scriptUtil import PVUtil
-]]></scriptText>
-          <embedded>false</embedded>
+        <action type="WRITE_PV">
+          <pv_name>loc://monitor_channel("")</pv_name>
+          <value>$(name)</value>
+          <timeout>10</timeout>
+          <confirm_message></confirm_message>
           <description></description>
         </action>
       </actions>
@@ -785,6 +821,15 @@ $(pv_value)</tooltip>
           <pv trig="true">$(P):$(BOX):$(name):VoltVariance</pv>
           <pv trig="true">$(P):$(BOX):$(name):InUse</pv>
         </rule>
+        <rule name="ChannelInUse" prop_id="enabled" out_exp="false">
+          <exp bool_exp="pvStr0==&quot;1&quot;">
+            <value>true</value>
+          </exp>
+          <exp bool_exp="pvStr0==&quot;0&quot;">
+            <value>false</value>
+          </exp>
+          <pv trig="true">$(P):$(BOX):$(name):InUse</pv>
+        </rule>
       </rules>
       <pv_value />
       <bit>-1</bit>
@@ -794,11 +839,11 @@ $(pv_value)</tooltip>
         <color red="0" green="128" blue="255" />
       </border_color>
       <actions hook="true" hook_all="true">
-        <action type="EXECUTE_PYTHONSCRIPT">
-          <path>../scripts/in_use_change_value.py</path>
-          <scriptText><![CDATA[from org.csstudio.opibuilder.scriptUtil import PVUtil
-]]></scriptText>
-          <embedded>false</embedded>
+        <action type="WRITE_PV">
+          <pv_name>loc://monitor_channel("")</pv_name>
+          <value>$(name)</value>
+          <timeout>10</timeout>
+          <confirm_message></confirm_message>
           <description></description>
         </action>
       </actions>
@@ -819,7 +864,7 @@ $(pv_value)</tooltip>
       <height>28</height>
       <data_type>0</data_type>
       <name>0:1</name>
-      <forecolor_alarm_sensitive>false</forecolor_alarm_sensitive>
+      <forecolor_alarm_sensitive>true</forecolor_alarm_sensitive>
       <show_boolean_label>false</show_boolean_label>
       <scale_options>
         <width_scalable>true</width_scalable>
@@ -905,6 +950,15 @@ $(pv_value)</tooltip>
           <pv trig="true">$(P):$(BOX):$(name):VoltVariance</pv>
           <pv trig="true">$(P):$(BOX):$(name):InUse</pv>
         </rule>
+        <rule name="ChannelInUse" prop_id="enabled" out_exp="false">
+          <exp bool_exp="pvStr0==&quot;1&quot;">
+            <value>true</value>
+          </exp>
+          <exp bool_exp="pvStr0==&quot;0&quot;">
+            <value>false</value>
+          </exp>
+          <pv trig="true">$(P):$(BOX):$(name):InUse</pv>
+        </rule>
       </rules>
       <pv_value />
       <bit>-1</bit>
@@ -914,11 +968,11 @@ $(pv_value)</tooltip>
         <color red="0" green="128" blue="255" />
       </border_color>
       <actions hook="true" hook_all="true">
-        <action type="EXECUTE_PYTHONSCRIPT">
-          <path>../scripts/in_use_change_value.py</path>
-          <scriptText><![CDATA[from org.csstudio.opibuilder.scriptUtil import PVUtil
-]]></scriptText>
-          <embedded>false</embedded>
+        <action type="WRITE_PV">
+          <pv_name>loc://monitor_channel("")</pv_name>
+          <value>$(name)</value>
+          <timeout>10</timeout>
+          <confirm_message></confirm_message>
           <description></description>
         </action>
       </actions>
@@ -1025,6 +1079,15 @@ $(pv_value)</tooltip>
           <pv trig="true">$(P):$(BOX):$(name):VoltVariance</pv>
           <pv trig="true">$(P):$(BOX):$(name):InUse</pv>
         </rule>
+        <rule name="ChannelInUse" prop_id="enabled" out_exp="false">
+          <exp bool_exp="pvStr0==&quot;1&quot;">
+            <value>true</value>
+          </exp>
+          <exp bool_exp="pvStr0==&quot;0&quot;">
+            <value>false</value>
+          </exp>
+          <pv trig="true">$(P):$(BOX):$(name):InUse</pv>
+        </rule>
       </rules>
       <pv_value />
       <bit>-1</bit>
@@ -1034,11 +1097,11 @@ $(pv_value)</tooltip>
         <color red="0" green="128" blue="255" />
       </border_color>
       <actions hook="true" hook_all="true">
-        <action type="EXECUTE_PYTHONSCRIPT">
-          <path>../scripts/in_use_change_value.py</path>
-          <scriptText><![CDATA[from org.csstudio.opibuilder.scriptUtil import PVUtil
-]]></scriptText>
-          <embedded>false</embedded>
+        <action type="WRITE_PV">
+          <pv_name>loc://monitor_channel("")</pv_name>
+          <value>$(name)</value>
+          <timeout>10</timeout>
+          <confirm_message></confirm_message>
           <description></description>
         </action>
       </actions>
@@ -1145,6 +1208,15 @@ $(pv_value)</tooltip>
           <pv trig="true">$(P):$(BOX):$(name):VoltVariance</pv>
           <pv trig="true">$(P):$(BOX):$(name):InUse</pv>
         </rule>
+        <rule name="ChannelInUse" prop_id="enabled" out_exp="false">
+          <exp bool_exp="pvStr0==&quot;1&quot;">
+            <value>true</value>
+          </exp>
+          <exp bool_exp="pvStr0==&quot;0&quot;">
+            <value>false</value>
+          </exp>
+          <pv trig="true">$(P):$(BOX):$(name):InUse</pv>
+        </rule>
       </rules>
       <pv_value />
       <bit>-1</bit>
@@ -1154,11 +1226,11 @@ $(pv_value)</tooltip>
         <color red="0" green="128" blue="255" />
       </border_color>
       <actions hook="true" hook_all="true">
-        <action type="EXECUTE_PYTHONSCRIPT">
-          <path>../scripts/in_use_change_value.py</path>
-          <scriptText><![CDATA[from org.csstudio.opibuilder.scriptUtil import PVUtil
-]]></scriptText>
-          <embedded>false</embedded>
+        <action type="WRITE_PV">
+          <pv_name>loc://monitor_channel("")</pv_name>
+          <value>$(name)</value>
+          <timeout>10</timeout>
+          <confirm_message></confirm_message>
           <description></description>
         </action>
       </actions>
@@ -1265,6 +1337,15 @@ $(pv_value)</tooltip>
           <pv trig="true">$(P):$(BOX):$(name):VoltVariance</pv>
           <pv trig="true">$(P):$(BOX):$(name):InUse</pv>
         </rule>
+        <rule name="ChannelInUse" prop_id="enabled" out_exp="false">
+          <exp bool_exp="pvStr0==&quot;1&quot;">
+            <value>true</value>
+          </exp>
+          <exp bool_exp="pvStr0==&quot;0&quot;">
+            <value>false</value>
+          </exp>
+          <pv trig="true">$(P):$(BOX):$(name):InUse</pv>
+        </rule>
       </rules>
       <pv_value />
       <bit>-1</bit>
@@ -1274,11 +1355,11 @@ $(pv_value)</tooltip>
         <color red="0" green="128" blue="255" />
       </border_color>
       <actions hook="true" hook_all="true">
-        <action type="EXECUTE_PYTHONSCRIPT">
-          <path>../scripts/in_use_change_value.py</path>
-          <scriptText><![CDATA[from org.csstudio.opibuilder.scriptUtil import PVUtil
-]]></scriptText>
-          <embedded>false</embedded>
+        <action type="WRITE_PV">
+          <pv_name>loc://monitor_channel("")</pv_name>
+          <value>$(name)</value>
+          <timeout>10</timeout>
+          <confirm_message></confirm_message>
           <description></description>
         </action>
       </actions>
@@ -1385,6 +1466,15 @@ $(pv_value)</tooltip>
           <pv trig="true">$(P):$(BOX):$(name):VoltVariance</pv>
           <pv trig="true">$(P):$(BOX):$(name):InUse</pv>
         </rule>
+        <rule name="ChannelInUse" prop_id="enabled" out_exp="false">
+          <exp bool_exp="pvStr0==&quot;1&quot;">
+            <value>true</value>
+          </exp>
+          <exp bool_exp="pvStr0==&quot;0&quot;">
+            <value>false</value>
+          </exp>
+          <pv trig="true">$(P):$(BOX):$(name):InUse</pv>
+        </rule>
       </rules>
       <pv_value />
       <bit>-1</bit>
@@ -1394,11 +1484,11 @@ $(pv_value)</tooltip>
         <color red="0" green="128" blue="255" />
       </border_color>
       <actions hook="true" hook_all="true">
-        <action type="EXECUTE_PYTHONSCRIPT">
-          <path>../scripts/in_use_change_value.py</path>
-          <scriptText><![CDATA[from org.csstudio.opibuilder.scriptUtil import PVUtil
-]]></scriptText>
-          <embedded>false</embedded>
+        <action type="WRITE_PV">
+          <pv_name>loc://monitor_channel("")</pv_name>
+          <value>$(name)</value>
+          <timeout>10</timeout>
+          <confirm_message></confirm_message>
           <description></description>
         </action>
       </actions>
@@ -1505,6 +1595,15 @@ $(pv_value)</tooltip>
           <pv trig="true">$(P):$(BOX):$(name):VoltVariance</pv>
           <pv trig="true">$(P):$(BOX):$(name):InUse</pv>
         </rule>
+        <rule name="ChannelInUse" prop_id="enabled" out_exp="false">
+          <exp bool_exp="pvStr0==&quot;1&quot;">
+            <value>true</value>
+          </exp>
+          <exp bool_exp="pvStr0==&quot;0&quot;">
+            <value>false</value>
+          </exp>
+          <pv trig="true">$(P):$(BOX):$(name):InUse</pv>
+        </rule>
       </rules>
       <pv_value />
       <bit>-1</bit>
@@ -1514,11 +1613,11 @@ $(pv_value)</tooltip>
         <color red="0" green="128" blue="255" />
       </border_color>
       <actions hook="true" hook_all="true">
-        <action type="EXECUTE_PYTHONSCRIPT">
-          <path>../scripts/in_use_change_value.py</path>
-          <scriptText><![CDATA[from org.csstudio.opibuilder.scriptUtil import PVUtil
-]]></scriptText>
-          <embedded>false</embedded>
+        <action type="WRITE_PV">
+          <pv_name>loc://monitor_channel("")</pv_name>
+          <value>$(name)</value>
+          <timeout>10</timeout>
+          <confirm_message></confirm_message>
           <description></description>
         </action>
       </actions>
@@ -1625,6 +1724,15 @@ $(pv_value)</tooltip>
           <pv trig="true">$(P):$(BOX):$(name):VoltVariance</pv>
           <pv trig="true">$(P):$(BOX):$(name):InUse</pv>
         </rule>
+        <rule name="ChannelInUse" prop_id="enabled" out_exp="false">
+          <exp bool_exp="pvStr0==&quot;1&quot;">
+            <value>true</value>
+          </exp>
+          <exp bool_exp="pvStr0==&quot;0&quot;">
+            <value>false</value>
+          </exp>
+          <pv trig="true">$(P):$(BOX):$(name):InUse</pv>
+        </rule>
       </rules>
       <pv_value />
       <bit>-1</bit>
@@ -1634,11 +1742,11 @@ $(pv_value)</tooltip>
         <color red="0" green="128" blue="255" />
       </border_color>
       <actions hook="true" hook_all="true">
-        <action type="EXECUTE_PYTHONSCRIPT">
-          <path>../scripts/in_use_change_value.py</path>
-          <scriptText><![CDATA[from org.csstudio.opibuilder.scriptUtil import PVUtil
-]]></scriptText>
-          <embedded>false</embedded>
+        <action type="WRITE_PV">
+          <pv_name>loc://monitor_channel("")</pv_name>
+          <value>$(name)</value>
+          <timeout>10</timeout>
+          <confirm_message></confirm_message>
           <description></description>
         </action>
       </actions>
@@ -1745,6 +1853,15 @@ $(pv_value)</tooltip>
           <pv trig="true">$(P):$(BOX):$(name):VoltVariance</pv>
           <pv trig="true">$(P):$(BOX):$(name):InUse</pv>
         </rule>
+        <rule name="ChannelInUse" prop_id="enabled" out_exp="false">
+          <exp bool_exp="pvStr0==&quot;1&quot;">
+            <value>true</value>
+          </exp>
+          <exp bool_exp="pvStr0==&quot;0&quot;">
+            <value>false</value>
+          </exp>
+          <pv trig="true">$(P):$(BOX):$(name):InUse</pv>
+        </rule>
       </rules>
       <pv_value />
       <bit>-1</bit>
@@ -1754,11 +1871,11 @@ $(pv_value)</tooltip>
         <color red="0" green="128" blue="255" />
       </border_color>
       <actions hook="true" hook_all="true">
-        <action type="EXECUTE_PYTHONSCRIPT">
-          <path>../scripts/in_use_change_value.py</path>
-          <scriptText><![CDATA[from org.csstudio.opibuilder.scriptUtil import PVUtil
-]]></scriptText>
-          <embedded>false</embedded>
+        <action type="WRITE_PV">
+          <pv_name>loc://monitor_channel("")</pv_name>
+          <value>$(name)</value>
+          <timeout>10</timeout>
+          <confirm_message></confirm_message>
           <description></description>
         </action>
       </actions>
@@ -1865,6 +1982,15 @@ $(pv_value)</tooltip>
           <pv trig="true">$(P):$(BOX):$(name):VoltVariance</pv>
           <pv trig="true">$(P):$(BOX):$(name):InUse</pv>
         </rule>
+        <rule name="ChannelInUse" prop_id="enabled" out_exp="false">
+          <exp bool_exp="pvStr0==&quot;1&quot;">
+            <value>true</value>
+          </exp>
+          <exp bool_exp="pvStr0==&quot;0&quot;">
+            <value>false</value>
+          </exp>
+          <pv trig="true">$(P):$(BOX):$(name):InUse</pv>
+        </rule>
       </rules>
       <pv_value />
       <bit>-1</bit>
@@ -1874,11 +2000,11 @@ $(pv_value)</tooltip>
         <color red="0" green="128" blue="255" />
       </border_color>
       <actions hook="true" hook_all="true">
-        <action type="EXECUTE_PYTHONSCRIPT">
-          <path>../scripts/in_use_change_value.py</path>
-          <scriptText><![CDATA[from org.csstudio.opibuilder.scriptUtil import PVUtil
-]]></scriptText>
-          <embedded>false</embedded>
+        <action type="WRITE_PV">
+          <pv_name>loc://monitor_channel("")</pv_name>
+          <value>$(name)</value>
+          <timeout>10</timeout>
+          <confirm_message></confirm_message>
           <description></description>
         </action>
       </actions>
@@ -1985,6 +2111,15 @@ $(pv_value)</tooltip>
           <pv trig="true">$(P):$(BOX):$(name):VoltVariance</pv>
           <pv trig="true">$(P):$(BOX):$(name):InUse</pv>
         </rule>
+        <rule name="ChannelInUse" prop_id="enabled" out_exp="false">
+          <exp bool_exp="pvStr0==&quot;1&quot;">
+            <value>true</value>
+          </exp>
+          <exp bool_exp="pvStr0==&quot;0&quot;">
+            <value>false</value>
+          </exp>
+          <pv trig="true">$(P):$(BOX):$(name):InUse</pv>
+        </rule>
       </rules>
       <pv_value />
       <bit>-1</bit>
@@ -1994,11 +2129,11 @@ $(pv_value)</tooltip>
         <color red="0" green="128" blue="255" />
       </border_color>
       <actions hook="true" hook_all="true">
-        <action type="EXECUTE_PYTHONSCRIPT">
-          <path>../scripts/in_use_change_value.py</path>
-          <scriptText><![CDATA[from org.csstudio.opibuilder.scriptUtil import PVUtil
-]]></scriptText>
-          <embedded>false</embedded>
+        <action type="WRITE_PV">
+          <pv_name>loc://monitor_channel("")</pv_name>
+          <value>$(name)</value>
+          <timeout>10</timeout>
+          <confirm_message></confirm_message>
           <description></description>
         </action>
       </actions>
@@ -2105,6 +2240,15 @@ $(pv_value)</tooltip>
           <pv trig="true">$(P):$(BOX):$(name):VoltVariance</pv>
           <pv trig="true">$(P):$(BOX):$(name):InUse</pv>
         </rule>
+        <rule name="ChannelInUse" prop_id="enabled" out_exp="false">
+          <exp bool_exp="pvStr0==&quot;1&quot;">
+            <value>true</value>
+          </exp>
+          <exp bool_exp="pvStr0==&quot;0&quot;">
+            <value>false</value>
+          </exp>
+          <pv trig="true">$(P):$(BOX):$(name):InUse</pv>
+        </rule>
       </rules>
       <pv_value />
       <bit>-1</bit>
@@ -2114,11 +2258,11 @@ $(pv_value)</tooltip>
         <color red="0" green="128" blue="255" />
       </border_color>
       <actions hook="true" hook_all="true">
-        <action type="EXECUTE_PYTHONSCRIPT">
-          <path>../scripts/in_use_change_value.py</path>
-          <scriptText><![CDATA[from org.csstudio.opibuilder.scriptUtil import PVUtil
-]]></scriptText>
-          <embedded>false</embedded>
+        <action type="WRITE_PV">
+          <pv_name>loc://monitor_channel("")</pv_name>
+          <value>$(name)</value>
+          <timeout>10</timeout>
+          <confirm_message></confirm_message>
           <description></description>
         </action>
       </actions>
@@ -2225,6 +2369,15 @@ $(pv_value)</tooltip>
           <pv trig="true">$(P):$(BOX):$(name):VoltVariance</pv>
           <pv trig="true">$(P):$(BOX):$(name):InUse</pv>
         </rule>
+        <rule name="ChannelInUse" prop_id="enabled" out_exp="false">
+          <exp bool_exp="pvStr0==&quot;1&quot;">
+            <value>true</value>
+          </exp>
+          <exp bool_exp="pvStr0==&quot;0&quot;">
+            <value>false</value>
+          </exp>
+          <pv trig="true">$(P):$(BOX):$(name):InUse</pv>
+        </rule>
       </rules>
       <pv_value />
       <bit>-1</bit>
@@ -2234,11 +2387,11 @@ $(pv_value)</tooltip>
         <color red="0" green="128" blue="255" />
       </border_color>
       <actions hook="true" hook_all="true">
-        <action type="EXECUTE_PYTHONSCRIPT">
-          <path>../scripts/in_use_change_value.py</path>
-          <scriptText><![CDATA[from org.csstudio.opibuilder.scriptUtil import PVUtil
-]]></scriptText>
-          <embedded>false</embedded>
+        <action type="WRITE_PV">
+          <pv_name>loc://monitor_channel("")</pv_name>
+          <value>$(name)</value>
+          <timeout>10</timeout>
+          <confirm_message></confirm_message>
           <description></description>
         </action>
       </actions>
@@ -2345,6 +2498,15 @@ $(pv_value)</tooltip>
           <pv trig="true">$(P):$(BOX):$(name):VoltVariance</pv>
           <pv trig="true">$(P):$(BOX):$(name):InUse</pv>
         </rule>
+        <rule name="ChannelInUse" prop_id="enabled" out_exp="false">
+          <exp bool_exp="pvStr0==&quot;1&quot;">
+            <value>true</value>
+          </exp>
+          <exp bool_exp="pvStr0==&quot;0&quot;">
+            <value>false</value>
+          </exp>
+          <pv trig="true">$(P):$(BOX):$(name):InUse</pv>
+        </rule>
       </rules>
       <pv_value />
       <bit>-1</bit>
@@ -2354,11 +2516,11 @@ $(pv_value)</tooltip>
         <color red="0" green="128" blue="255" />
       </border_color>
       <actions hook="true" hook_all="true">
-        <action type="EXECUTE_PYTHONSCRIPT">
-          <path>../scripts/in_use_change_value.py</path>
-          <scriptText><![CDATA[from org.csstudio.opibuilder.scriptUtil import PVUtil
-]]></scriptText>
-          <embedded>false</embedded>
+        <action type="WRITE_PV">
+          <pv_name>loc://monitor_channel("")</pv_name>
+          <value>$(name)</value>
+          <timeout>10</timeout>
+          <confirm_message></confirm_message>
           <description></description>
         </action>
       </actions>
@@ -2465,6 +2627,15 @@ $(pv_value)</tooltip>
           <pv trig="true">$(P):$(BOX):$(name):VoltVariance</pv>
           <pv trig="true">$(P):$(BOX):$(name):InUse</pv>
         </rule>
+        <rule name="ChannelInUse" prop_id="enabled" out_exp="false">
+          <exp bool_exp="pvStr0==&quot;1&quot;">
+            <value>true</value>
+          </exp>
+          <exp bool_exp="pvStr0==&quot;0&quot;">
+            <value>false</value>
+          </exp>
+          <pv trig="true">$(P):$(BOX):$(name):InUse</pv>
+        </rule>
       </rules>
       <pv_value />
       <bit>-1</bit>
@@ -2474,11 +2645,11 @@ $(pv_value)</tooltip>
         <color red="0" green="128" blue="255" />
       </border_color>
       <actions hook="true" hook_all="true">
-        <action type="EXECUTE_PYTHONSCRIPT">
-          <path>../scripts/in_use_change_value.py</path>
-          <scriptText><![CDATA[from org.csstudio.opibuilder.scriptUtil import PVUtil
-]]></scriptText>
-          <embedded>false</embedded>
+        <action type="WRITE_PV">
+          <pv_name>loc://monitor_channel("")</pv_name>
+          <value>$(name)</value>
+          <timeout>10</timeout>
+          <confirm_message></confirm_message>
           <description></description>
         </action>
       </actions>
@@ -2585,6 +2756,15 @@ $(pv_value)</tooltip>
           <pv trig="true">$(P):$(BOX):$(name):VoltVariance</pv>
           <pv trig="true">$(P):$(BOX):$(name):InUse</pv>
         </rule>
+        <rule name="ChannelInUse" prop_id="enabled" out_exp="false">
+          <exp bool_exp="pvStr0==&quot;1&quot;">
+            <value>true</value>
+          </exp>
+          <exp bool_exp="pvStr0==&quot;0&quot;">
+            <value>false</value>
+          </exp>
+          <pv trig="true">$(P):$(BOX):$(name):InUse</pv>
+        </rule>
       </rules>
       <pv_value />
       <bit>-1</bit>
@@ -2594,11 +2774,11 @@ $(pv_value)</tooltip>
         <color red="0" green="128" blue="255" />
       </border_color>
       <actions hook="true" hook_all="true">
-        <action type="EXECUTE_PYTHONSCRIPT">
-          <path>../scripts/in_use_change_value.py</path>
-          <scriptText><![CDATA[from org.csstudio.opibuilder.scriptUtil import PVUtil
-]]></scriptText>
-          <embedded>false</embedded>
+        <action type="WRITE_PV">
+          <pv_name>loc://monitor_channel("")</pv_name>
+          <value>$(name)</value>
+          <timeout>10</timeout>
+          <confirm_message></confirm_message>
           <description></description>
         </action>
       </actions>
@@ -2705,6 +2885,15 @@ $(pv_value)</tooltip>
           <pv trig="true">$(P):$(BOX):$(name):VoltVariance</pv>
           <pv trig="true">$(P):$(BOX):$(name):InUse</pv>
         </rule>
+        <rule name="ChannelInUse" prop_id="enabled" out_exp="false">
+          <exp bool_exp="pvStr0==&quot;1&quot;">
+            <value>true</value>
+          </exp>
+          <exp bool_exp="pvStr0==&quot;0&quot;">
+            <value>false</value>
+          </exp>
+          <pv trig="true">$(P):$(BOX):$(name):InUse</pv>
+        </rule>
       </rules>
       <pv_value />
       <bit>-1</bit>
@@ -2714,11 +2903,11 @@ $(pv_value)</tooltip>
         <color red="0" green="128" blue="255" />
       </border_color>
       <actions hook="true" hook_all="true">
-        <action type="EXECUTE_PYTHONSCRIPT">
-          <path>../scripts/in_use_change_value.py</path>
-          <scriptText><![CDATA[from org.csstudio.opibuilder.scriptUtil import PVUtil
-]]></scriptText>
-          <embedded>false</embedded>
+        <action type="WRITE_PV">
+          <pv_name>loc://monitor_channel("")</pv_name>
+          <value>$(name)</value>
+          <timeout>10</timeout>
+          <confirm_message></confirm_message>
           <description></description>
         </action>
       </actions>
@@ -2825,6 +3014,15 @@ $(pv_value)</tooltip>
           <pv trig="true">$(P):$(BOX):$(name):VoltVariance</pv>
           <pv trig="true">$(P):$(BOX):$(name):InUse</pv>
         </rule>
+        <rule name="ChannelInUse" prop_id="enabled" out_exp="false">
+          <exp bool_exp="pvStr0==&quot;1&quot;">
+            <value>true</value>
+          </exp>
+          <exp bool_exp="pvStr0==&quot;0&quot;">
+            <value>false</value>
+          </exp>
+          <pv trig="true">$(P):$(BOX):$(name):InUse</pv>
+        </rule>
       </rules>
       <pv_value />
       <bit>-1</bit>
@@ -2834,11 +3032,11 @@ $(pv_value)</tooltip>
         <color red="0" green="128" blue="255" />
       </border_color>
       <actions hook="true" hook_all="true">
-        <action type="EXECUTE_PYTHONSCRIPT">
-          <path>../scripts/in_use_change_value.py</path>
-          <scriptText><![CDATA[from org.csstudio.opibuilder.scriptUtil import PVUtil
-]]></scriptText>
-          <embedded>false</embedded>
+        <action type="WRITE_PV">
+          <pv_name>loc://monitor_channel("")</pv_name>
+          <value>$(name)</value>
+          <timeout>10</timeout>
+          <confirm_message></confirm_message>
           <description></description>
         </action>
       </actions>
@@ -2945,6 +3143,15 @@ $(pv_value)</tooltip>
           <pv trig="true">$(P):$(BOX):$(name):VoltVariance</pv>
           <pv trig="true">$(P):$(BOX):$(name):InUse</pv>
         </rule>
+        <rule name="ChannelInUse" prop_id="enabled" out_exp="false">
+          <exp bool_exp="pvStr0==&quot;1&quot;">
+            <value>true</value>
+          </exp>
+          <exp bool_exp="pvStr0==&quot;0&quot;">
+            <value>false</value>
+          </exp>
+          <pv trig="true">$(P):$(BOX):$(name):InUse</pv>
+        </rule>
       </rules>
       <pv_value />
       <bit>-1</bit>
@@ -2954,11 +3161,11 @@ $(pv_value)</tooltip>
         <color red="0" green="128" blue="255" />
       </border_color>
       <actions hook="true" hook_all="true">
-        <action type="EXECUTE_PYTHONSCRIPT">
-          <path>../scripts/in_use_change_value.py</path>
-          <scriptText><![CDATA[from org.csstudio.opibuilder.scriptUtil import PVUtil
-]]></scriptText>
-          <embedded>false</embedded>
+        <action type="WRITE_PV">
+          <pv_name>loc://monitor_channel("")</pv_name>
+          <value>$(name)</value>
+          <timeout>10</timeout>
+          <confirm_message></confirm_message>
           <description></description>
         </action>
       </actions>
@@ -3065,6 +3272,15 @@ $(pv_value)</tooltip>
           <pv trig="true">$(P):$(BOX):$(name):VoltVariance</pv>
           <pv trig="true">$(P):$(BOX):$(name):InUse</pv>
         </rule>
+        <rule name="ChannelInUse" prop_id="enabled" out_exp="false">
+          <exp bool_exp="pvStr0==&quot;1&quot;">
+            <value>true</value>
+          </exp>
+          <exp bool_exp="pvStr0==&quot;0&quot;">
+            <value>false</value>
+          </exp>
+          <pv trig="true">$(P):$(BOX):$(name):InUse</pv>
+        </rule>
       </rules>
       <pv_value />
       <bit>-1</bit>
@@ -3074,11 +3290,11 @@ $(pv_value)</tooltip>
         <color red="0" green="128" blue="255" />
       </border_color>
       <actions hook="true" hook_all="true">
-        <action type="EXECUTE_PYTHONSCRIPT">
-          <path>../scripts/in_use_change_value.py</path>
-          <scriptText><![CDATA[from org.csstudio.opibuilder.scriptUtil import PVUtil
-]]></scriptText>
-          <embedded>false</embedded>
+        <action type="WRITE_PV">
+          <pv_name>loc://monitor_channel("")</pv_name>
+          <value>$(name)</value>
+          <timeout>10</timeout>
+          <confirm_message></confirm_message>
           <description></description>
         </action>
       </actions>
@@ -3185,6 +3401,15 @@ $(pv_value)</tooltip>
           <pv trig="true">$(P):$(BOX):$(name):VoltVariance</pv>
           <pv trig="true">$(P):$(BOX):$(name):InUse</pv>
         </rule>
+        <rule name="ChannelInUse" prop_id="enabled" out_exp="false">
+          <exp bool_exp="pvStr0==&quot;1&quot;">
+            <value>true</value>
+          </exp>
+          <exp bool_exp="pvStr0==&quot;0&quot;">
+            <value>false</value>
+          </exp>
+          <pv trig="true">$(P):$(BOX):$(name):InUse</pv>
+        </rule>
       </rules>
       <pv_value />
       <bit>-1</bit>
@@ -3194,11 +3419,11 @@ $(pv_value)</tooltip>
         <color red="0" green="128" blue="255" />
       </border_color>
       <actions hook="true" hook_all="true">
-        <action type="EXECUTE_PYTHONSCRIPT">
-          <path>../scripts/in_use_change_value.py</path>
-          <scriptText><![CDATA[from org.csstudio.opibuilder.scriptUtil import PVUtil
-]]></scriptText>
-          <embedded>false</embedded>
+        <action type="WRITE_PV">
+          <pv_name>loc://monitor_channel("")</pv_name>
+          <value>$(name)</value>
+          <timeout>10</timeout>
+          <confirm_message></confirm_message>
           <description></description>
         </action>
       </actions>
@@ -3305,6 +3530,15 @@ $(pv_value)</tooltip>
           <pv trig="true">$(P):$(BOX):$(name):VoltVariance</pv>
           <pv trig="true">$(P):$(BOX):$(name):InUse</pv>
         </rule>
+        <rule name="ChannelInUse" prop_id="enabled" out_exp="false">
+          <exp bool_exp="pvStr0==&quot;1&quot;">
+            <value>true</value>
+          </exp>
+          <exp bool_exp="pvStr0==&quot;0&quot;">
+            <value>false</value>
+          </exp>
+          <pv trig="true">$(P):$(BOX):$(name):InUse</pv>
+        </rule>
       </rules>
       <pv_value />
       <bit>-1</bit>
@@ -3314,11 +3548,11 @@ $(pv_value)</tooltip>
         <color red="0" green="128" blue="255" />
       </border_color>
       <actions hook="true" hook_all="true">
-        <action type="EXECUTE_PYTHONSCRIPT">
-          <path>../scripts/in_use_change_value.py</path>
-          <scriptText><![CDATA[from org.csstudio.opibuilder.scriptUtil import PVUtil
-]]></scriptText>
-          <embedded>false</embedded>
+        <action type="WRITE_PV">
+          <pv_name>loc://monitor_channel("")</pv_name>
+          <value>$(name)</value>
+          <timeout>10</timeout>
+          <confirm_message></confirm_message>
           <description></description>
         </action>
       </actions>
@@ -3425,6 +3659,15 @@ $(pv_value)</tooltip>
           <pv trig="true">$(P):$(BOX):$(name):VoltVariance</pv>
           <pv trig="true">$(P):$(BOX):$(name):InUse</pv>
         </rule>
+        <rule name="ChannelInUse" prop_id="enabled" out_exp="false">
+          <exp bool_exp="pvStr0==&quot;1&quot;">
+            <value>true</value>
+          </exp>
+          <exp bool_exp="pvStr0==&quot;0&quot;">
+            <value>false</value>
+          </exp>
+          <pv trig="true">$(P):$(BOX):$(name):InUse</pv>
+        </rule>
       </rules>
       <pv_value />
       <bit>-1</bit>
@@ -3434,11 +3677,11 @@ $(pv_value)</tooltip>
         <color red="0" green="128" blue="255" />
       </border_color>
       <actions hook="true" hook_all="true">
-        <action type="EXECUTE_PYTHONSCRIPT">
-          <path>../scripts/in_use_change_value.py</path>
-          <scriptText><![CDATA[from org.csstudio.opibuilder.scriptUtil import PVUtil
-]]></scriptText>
-          <embedded>false</embedded>
+        <action type="WRITE_PV">
+          <pv_name>loc://monitor_channel("")</pv_name>
+          <value>$(name)</value>
+          <timeout>10</timeout>
+          <confirm_message></confirm_message>
           <description></description>
         </action>
       </actions>
@@ -3545,6 +3788,15 @@ $(pv_value)</tooltip>
           <pv trig="true">$(P):$(BOX):$(name):VoltVariance</pv>
           <pv trig="true">$(P):$(BOX):$(name):InUse</pv>
         </rule>
+        <rule name="ChannelInUse" prop_id="enabled" out_exp="false">
+          <exp bool_exp="pvStr0==&quot;1&quot;">
+            <value>true</value>
+          </exp>
+          <exp bool_exp="pvStr0==&quot;0&quot;">
+            <value>false</value>
+          </exp>
+          <pv trig="true">$(P):$(BOX):$(name):InUse</pv>
+        </rule>
       </rules>
       <pv_value />
       <bit>-1</bit>
@@ -3554,11 +3806,11 @@ $(pv_value)</tooltip>
         <color red="0" green="128" blue="255" />
       </border_color>
       <actions hook="true" hook_all="true">
-        <action type="EXECUTE_PYTHONSCRIPT">
-          <path>../scripts/in_use_change_value.py</path>
-          <scriptText><![CDATA[from org.csstudio.opibuilder.scriptUtil import PVUtil
-]]></scriptText>
-          <embedded>false</embedded>
+        <action type="WRITE_PV">
+          <pv_name>loc://monitor_channel("")</pv_name>
+          <value>$(name)</value>
+          <timeout>10</timeout>
+          <confirm_message></confirm_message>
           <description></description>
         </action>
       </actions>
@@ -3665,6 +3917,15 @@ $(pv_value)</tooltip>
           <pv trig="true">$(P):$(BOX):$(name):VoltVariance</pv>
           <pv trig="true">$(P):$(BOX):$(name):InUse</pv>
         </rule>
+        <rule name="ChannelInUse" prop_id="enabled" out_exp="false">
+          <exp bool_exp="pvStr0==&quot;1&quot;">
+            <value>true</value>
+          </exp>
+          <exp bool_exp="pvStr0==&quot;0&quot;">
+            <value>false</value>
+          </exp>
+          <pv trig="true">$(P):$(BOX):$(name):InUse</pv>
+        </rule>
       </rules>
       <pv_value />
       <bit>-1</bit>
@@ -3674,11 +3935,11 @@ $(pv_value)</tooltip>
         <color red="0" green="128" blue="255" />
       </border_color>
       <actions hook="true" hook_all="true">
-        <action type="EXECUTE_PYTHONSCRIPT">
-          <path>../scripts/in_use_change_value.py</path>
-          <scriptText><![CDATA[from org.csstudio.opibuilder.scriptUtil import PVUtil
-]]></scriptText>
-          <embedded>false</embedded>
+        <action type="WRITE_PV">
+          <pv_name>loc://monitor_channel("")</pv_name>
+          <value>$(name)</value>
+          <timeout>10</timeout>
+          <confirm_message></confirm_message>
           <description></description>
         </action>
       </actions>
@@ -3785,6 +4046,15 @@ $(pv_value)</tooltip>
           <pv trig="true">$(P):$(BOX):$(name):VoltVariance</pv>
           <pv trig="true">$(P):$(BOX):$(name):InUse</pv>
         </rule>
+        <rule name="ChannelInUse" prop_id="enabled" out_exp="false">
+          <exp bool_exp="pvStr0==&quot;1&quot;">
+            <value>true</value>
+          </exp>
+          <exp bool_exp="pvStr0==&quot;0&quot;">
+            <value>false</value>
+          </exp>
+          <pv trig="true">$(P):$(BOX):$(name):InUse</pv>
+        </rule>
       </rules>
       <pv_value />
       <bit>-1</bit>
@@ -3794,11 +4064,11 @@ $(pv_value)</tooltip>
         <color red="0" green="128" blue="255" />
       </border_color>
       <actions hook="true" hook_all="true">
-        <action type="EXECUTE_PYTHONSCRIPT">
-          <path>../scripts/in_use_change_value.py</path>
-          <scriptText><![CDATA[from org.csstudio.opibuilder.scriptUtil import PVUtil
-]]></scriptText>
-          <embedded>false</embedded>
+        <action type="WRITE_PV">
+          <pv_name>loc://monitor_channel("")</pv_name>
+          <value>$(name)</value>
+          <timeout>10</timeout>
+          <confirm_message></confirm_message>
           <description></description>
         </action>
       </actions>
@@ -3905,6 +4175,15 @@ $(pv_value)</tooltip>
           <pv trig="true">$(P):$(BOX):$(name):VoltVariance</pv>
           <pv trig="true">$(P):$(BOX):$(name):InUse</pv>
         </rule>
+        <rule name="ChannelInUse" prop_id="enabled" out_exp="false">
+          <exp bool_exp="pvStr0==&quot;1&quot;">
+            <value>true</value>
+          </exp>
+          <exp bool_exp="pvStr0==&quot;0&quot;">
+            <value>false</value>
+          </exp>
+          <pv trig="true">$(P):$(BOX):$(name):InUse</pv>
+        </rule>
       </rules>
       <pv_value />
       <bit>-1</bit>
@@ -3914,11 +4193,11 @@ $(pv_value)</tooltip>
         <color red="0" green="128" blue="255" />
       </border_color>
       <actions hook="true" hook_all="true">
-        <action type="EXECUTE_PYTHONSCRIPT">
-          <path>../scripts/in_use_change_value.py</path>
-          <scriptText><![CDATA[from org.csstudio.opibuilder.scriptUtil import PVUtil
-]]></scriptText>
-          <embedded>false</embedded>
+        <action type="WRITE_PV">
+          <pv_name>loc://monitor_channel("")</pv_name>
+          <value>$(name)</value>
+          <timeout>10</timeout>
+          <confirm_message></confirm_message>
           <description></description>
         </action>
       </actions>
@@ -4025,6 +4304,15 @@ $(pv_value)</tooltip>
           <pv trig="true">$(P):$(BOX):$(name):VoltVariance</pv>
           <pv trig="true">$(P):$(BOX):$(name):InUse</pv>
         </rule>
+        <rule name="ChannelInUse" prop_id="enabled" out_exp="false">
+          <exp bool_exp="pvStr0==&quot;1&quot;">
+            <value>true</value>
+          </exp>
+          <exp bool_exp="pvStr0==&quot;0&quot;">
+            <value>false</value>
+          </exp>
+          <pv trig="true">$(P):$(BOX):$(name):InUse</pv>
+        </rule>
       </rules>
       <pv_value />
       <bit>-1</bit>
@@ -4034,11 +4322,11 @@ $(pv_value)</tooltip>
         <color red="0" green="128" blue="255" />
       </border_color>
       <actions hook="true" hook_all="true">
-        <action type="EXECUTE_PYTHONSCRIPT">
-          <path>../scripts/in_use_change_value.py</path>
-          <scriptText><![CDATA[from org.csstudio.opibuilder.scriptUtil import PVUtil
-]]></scriptText>
-          <embedded>false</embedded>
+        <action type="WRITE_PV">
+          <pv_name>loc://monitor_channel("")</pv_name>
+          <value>$(name)</value>
+          <timeout>10</timeout>
+          <confirm_message></confirm_message>
           <description></description>
         </action>
       </actions>
@@ -4145,6 +4433,15 @@ $(pv_value)</tooltip>
           <pv trig="true">$(P):$(BOX):$(name):VoltVariance</pv>
           <pv trig="true">$(P):$(BOX):$(name):InUse</pv>
         </rule>
+        <rule name="ChannelInUse" prop_id="enabled" out_exp="false">
+          <exp bool_exp="pvStr0==&quot;1&quot;">
+            <value>true</value>
+          </exp>
+          <exp bool_exp="pvStr0==&quot;0&quot;">
+            <value>false</value>
+          </exp>
+          <pv trig="true">$(P):$(BOX):$(name):InUse</pv>
+        </rule>
       </rules>
       <pv_value />
       <bit>-1</bit>
@@ -4154,11 +4451,11 @@ $(pv_value)</tooltip>
         <color red="0" green="128" blue="255" />
       </border_color>
       <actions hook="true" hook_all="true">
-        <action type="EXECUTE_PYTHONSCRIPT">
-          <path>../scripts/in_use_change_value.py</path>
-          <scriptText><![CDATA[from org.csstudio.opibuilder.scriptUtil import PVUtil
-]]></scriptText>
-          <embedded>false</embedded>
+        <action type="WRITE_PV">
+          <pv_name>loc://monitor_channel("")</pv_name>
+          <value>$(name)</value>
+          <timeout>10</timeout>
+          <confirm_message></confirm_message>
           <description></description>
         </action>
       </actions>
@@ -4265,6 +4562,15 @@ $(pv_value)</tooltip>
           <pv trig="true">$(P):$(BOX):$(name):VoltVariance</pv>
           <pv trig="true">$(P):$(BOX):$(name):InUse</pv>
         </rule>
+        <rule name="ChannelInUse" prop_id="enabled" out_exp="false">
+          <exp bool_exp="pvStr0==&quot;1&quot;">
+            <value>true</value>
+          </exp>
+          <exp bool_exp="pvStr0==&quot;0&quot;">
+            <value>false</value>
+          </exp>
+          <pv trig="true">$(P):$(BOX):$(name):InUse</pv>
+        </rule>
       </rules>
       <pv_value />
       <bit>-1</bit>
@@ -4274,11 +4580,11 @@ $(pv_value)</tooltip>
         <color red="0" green="128" blue="255" />
       </border_color>
       <actions hook="true" hook_all="true">
-        <action type="EXECUTE_PYTHONSCRIPT">
-          <path>../scripts/in_use_change_value.py</path>
-          <scriptText><![CDATA[from org.csstudio.opibuilder.scriptUtil import PVUtil
-]]></scriptText>
-          <embedded>false</embedded>
+        <action type="WRITE_PV">
+          <pv_name>loc://monitor_channel("")</pv_name>
+          <value>$(name)</value>
+          <timeout>10</timeout>
+          <confirm_message></confirm_message>
           <description></description>
         </action>
       </actions>
@@ -4385,6 +4691,15 @@ $(pv_value)</tooltip>
           <pv trig="true">$(P):$(BOX):$(name):VoltVariance</pv>
           <pv trig="true">$(P):$(BOX):$(name):InUse</pv>
         </rule>
+        <rule name="ChannelInUse" prop_id="enabled" out_exp="false">
+          <exp bool_exp="pvStr0==&quot;1&quot;">
+            <value>true</value>
+          </exp>
+          <exp bool_exp="pvStr0==&quot;0&quot;">
+            <value>false</value>
+          </exp>
+          <pv trig="true">$(P):$(BOX):$(name):InUse</pv>
+        </rule>
       </rules>
       <pv_value />
       <bit>-1</bit>
@@ -4394,11 +4709,11 @@ $(pv_value)</tooltip>
         <color red="0" green="128" blue="255" />
       </border_color>
       <actions hook="true" hook_all="true">
-        <action type="EXECUTE_PYTHONSCRIPT">
-          <path>../scripts/in_use_change_value.py</path>
-          <scriptText><![CDATA[from org.csstudio.opibuilder.scriptUtil import PVUtil
-]]></scriptText>
-          <embedded>false</embedded>
+        <action type="WRITE_PV">
+          <pv_name>loc://monitor_channel("")</pv_name>
+          <value>$(name)</value>
+          <timeout>10</timeout>
+          <confirm_message></confirm_message>
           <description></description>
         </action>
       </actions>
@@ -4505,6 +4820,15 @@ $(pv_value)</tooltip>
           <pv trig="true">$(P):$(BOX):$(name):VoltVariance</pv>
           <pv trig="true">$(P):$(BOX):$(name):InUse</pv>
         </rule>
+        <rule name="ChannelInUse" prop_id="enabled" out_exp="false">
+          <exp bool_exp="pvStr0==&quot;1&quot;">
+            <value>true</value>
+          </exp>
+          <exp bool_exp="pvStr0==&quot;0&quot;">
+            <value>false</value>
+          </exp>
+          <pv trig="true">$(P):$(BOX):$(name):InUse</pv>
+        </rule>
       </rules>
       <pv_value />
       <bit>-1</bit>
@@ -4514,11 +4838,11 @@ $(pv_value)</tooltip>
         <color red="0" green="128" blue="255" />
       </border_color>
       <actions hook="true" hook_all="true">
-        <action type="EXECUTE_PYTHONSCRIPT">
-          <path>../scripts/in_use_change_value.py</path>
-          <scriptText><![CDATA[from org.csstudio.opibuilder.scriptUtil import PVUtil
-]]></scriptText>
-          <embedded>false</embedded>
+        <action type="WRITE_PV">
+          <pv_name>loc://monitor_channel("")</pv_name>
+          <value>$(name)</value>
+          <timeout>10</timeout>
+          <confirm_message></confirm_message>
           <description></description>
         </action>
       </actions>
@@ -4625,6 +4949,15 @@ $(pv_value)</tooltip>
           <pv trig="true">$(P):$(BOX):$(name):VoltVariance</pv>
           <pv trig="true">$(P):$(BOX):$(name):InUse</pv>
         </rule>
+        <rule name="ChannelInUse" prop_id="enabled" out_exp="false">
+          <exp bool_exp="pvStr0==&quot;1&quot;">
+            <value>true</value>
+          </exp>
+          <exp bool_exp="pvStr0==&quot;0&quot;">
+            <value>false</value>
+          </exp>
+          <pv trig="true">$(P):$(BOX):$(name):InUse</pv>
+        </rule>
       </rules>
       <pv_value />
       <bit>-1</bit>
@@ -4634,11 +4967,11 @@ $(pv_value)</tooltip>
         <color red="0" green="128" blue="255" />
       </border_color>
       <actions hook="true" hook_all="true">
-        <action type="EXECUTE_PYTHONSCRIPT">
-          <path>../scripts/in_use_change_value.py</path>
-          <scriptText><![CDATA[from org.csstudio.opibuilder.scriptUtil import PVUtil
-]]></scriptText>
-          <embedded>false</embedded>
+        <action type="WRITE_PV">
+          <pv_name>loc://monitor_channel("")</pv_name>
+          <value>$(name)</value>
+          <timeout>10</timeout>
+          <confirm_message></confirm_message>
           <description></description>
         </action>
       </actions>
@@ -4745,6 +5078,15 @@ $(pv_value)</tooltip>
           <pv trig="true">$(P):$(BOX):$(name):VoltVariance</pv>
           <pv trig="true">$(P):$(BOX):$(name):InUse</pv>
         </rule>
+        <rule name="ChannelInUse" prop_id="enabled" out_exp="false">
+          <exp bool_exp="pvStr0==&quot;1&quot;">
+            <value>true</value>
+          </exp>
+          <exp bool_exp="pvStr0==&quot;0&quot;">
+            <value>false</value>
+          </exp>
+          <pv trig="true">$(P):$(BOX):$(name):InUse</pv>
+        </rule>
       </rules>
       <pv_value />
       <bit>-1</bit>
@@ -4754,11 +5096,11 @@ $(pv_value)</tooltip>
         <color red="0" green="128" blue="255" />
       </border_color>
       <actions hook="true" hook_all="true">
-        <action type="EXECUTE_PYTHONSCRIPT">
-          <path>../scripts/in_use_change_value.py</path>
-          <scriptText><![CDATA[from org.csstudio.opibuilder.scriptUtil import PVUtil
-]]></scriptText>
-          <embedded>false</embedded>
+        <action type="WRITE_PV">
+          <pv_name>loc://monitor_channel("")</pv_name>
+          <value>$(name)</value>
+          <timeout>10</timeout>
+          <confirm_message></confirm_message>
           <description></description>
         </action>
       </actions>
@@ -4865,6 +5207,15 @@ $(pv_value)</tooltip>
           <pv trig="true">$(P):$(BOX):$(name):VoltVariance</pv>
           <pv trig="true">$(P):$(BOX):$(name):InUse</pv>
         </rule>
+        <rule name="ChannelInUse" prop_id="enabled" out_exp="false">
+          <exp bool_exp="pvStr0==&quot;1&quot;">
+            <value>true</value>
+          </exp>
+          <exp bool_exp="pvStr0==&quot;0&quot;">
+            <value>false</value>
+          </exp>
+          <pv trig="true">$(P):$(BOX):$(name):InUse</pv>
+        </rule>
       </rules>
       <pv_value />
       <bit>-1</bit>
@@ -4874,11 +5225,11 @@ $(pv_value)</tooltip>
         <color red="0" green="128" blue="255" />
       </border_color>
       <actions hook="true" hook_all="true">
-        <action type="EXECUTE_PYTHONSCRIPT">
-          <path>../scripts/in_use_change_value.py</path>
-          <scriptText><![CDATA[from org.csstudio.opibuilder.scriptUtil import PVUtil
-]]></scriptText>
-          <embedded>false</embedded>
+        <action type="WRITE_PV">
+          <pv_name>loc://monitor_channel("")</pv_name>
+          <value>$(name)</value>
+          <timeout>10</timeout>
+          <confirm_message></confirm_message>
           <description></description>
         </action>
       </actions>
@@ -4985,6 +5336,15 @@ $(pv_value)</tooltip>
           <pv trig="true">$(P):$(BOX):$(name):VoltVariance</pv>
           <pv trig="true">$(P):$(BOX):$(name):InUse</pv>
         </rule>
+        <rule name="ChannelInUse" prop_id="enabled" out_exp="false">
+          <exp bool_exp="pvStr0==&quot;1&quot;">
+            <value>true</value>
+          </exp>
+          <exp bool_exp="pvStr0==&quot;0&quot;">
+            <value>false</value>
+          </exp>
+          <pv trig="true">$(P):$(BOX):$(name):InUse</pv>
+        </rule>
       </rules>
       <pv_value />
       <bit>-1</bit>
@@ -4994,11 +5354,11 @@ $(pv_value)</tooltip>
         <color red="0" green="128" blue="255" />
       </border_color>
       <actions hook="true" hook_all="true">
-        <action type="EXECUTE_PYTHONSCRIPT">
-          <path>../scripts/in_use_change_value.py</path>
-          <scriptText><![CDATA[from org.csstudio.opibuilder.scriptUtil import PVUtil
-]]></scriptText>
-          <embedded>false</embedded>
+        <action type="WRITE_PV">
+          <pv_name>loc://monitor_channel("")</pv_name>
+          <value>$(name)</value>
+          <timeout>10</timeout>
+          <confirm_message></confirm_message>
           <description></description>
         </action>
       </actions>
@@ -5166,7 +5526,15 @@ $(pv_value)</tooltip>
       <border_color>
         <color red="0" green="128" blue="255" />
       </border_color>
-      <actions hook="false" hook_all="false" />
+      <actions hook="true" hook_all="true">
+        <action type="WRITE_PV">
+          <pv_name>loc://monitor_channel("")</pv_name>
+          <value>$(name)</value>
+          <timeout>10</timeout>
+          <confirm_message></confirm_message>
+          <description></description>
+        </action>
+      </actions>
       <y>163</y>
       <tooltip>$(pv_name)
 $(pv_value)</tooltip>

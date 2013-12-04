@@ -9,16 +9,18 @@ pv = widget.getPVByName("%s" % pvname)
 
 newpvvalue = -1
 
-pvvalue = PVUtil.getString(pv)
+pvvalue = PVUtil.getLong(pv)
 
-print pvvalue
-
-if pvvalue == "0":
+if pvvalue == 0:
     
     newpvvalue = 1
     
-elif pvvalue == "1":
+elif pvvalue == 1:
     
     newpvvalue = 0
 
-widget.getPVByName("%s" % pvname).setValue(newpvvalue)
+pv = widget.getPVByName("%s" % pvname)
+
+print pv
+
+pv.setValue(newpvvalue)
