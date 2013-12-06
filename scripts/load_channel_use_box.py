@@ -4,9 +4,10 @@ from org.csstudio.opibuilder.scriptUtil import DataUtil
 
 macroInput = DataUtil.createMacrosInput(True)
 
-pvvalue = display.getWidget("channel_use_combo").getValue()
+pvvalue = widget.getPVByName("loc://channel_in_use")
 
-boxnumber = int(pvvalue)
+
+boxnumber = PVUtil.getLong(pvvalue)
 
 macroInput.put("BOXNO", "%s" % boxnumber)
 macroInput.put("BOX", "BOX:%s" % boxnumber)
