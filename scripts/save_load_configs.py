@@ -1,14 +1,15 @@
 from org.csstudio.opibuilder.scriptUtil import PVUtil
+import os
 
-save_load_configs_pv = display.getWidget("save_load_configs_radio").getPV()
+save_load_configs_pv = widget.getPVByName("loc://save_load_configs")
 
 save_load_option = PVUtil.getString(save_load_configs_pv)
 
 message = ""
 
+print save_load_option
+
 if save_load_option == "Save voltage configuration":
-    
-    print 'here'
     
     filepath_pv = display.getWidget("save_load_configs_filepath").getPV()
     filepath = PVUtil.getString(filepath_pv)
@@ -100,8 +101,9 @@ if save_load_option == "Load voltage configuration":
     
     filepath_pv = display.getWidget("save_load_configs_filepath").getPV()
     filepath = PVUtil.getString(filepath_pv)
+    check_filepath = os.path.isfile(filepath)
     
-    if filepath == "":
+    if check_filepath == False:
         
         message = 'Please choose file first.'
         
@@ -125,10 +127,15 @@ if save_load_option == "Load voltage configuration":
             
 if save_load_option == "Load channel usage configuration":
     
+    print 'here config'
+    
     filepath_pv = display.getWidget("save_load_configs_filepath").getPV()
     filepath = PVUtil.getString(filepath_pv)
+    check_filepath = os.path.isfile(filepath)
     
-    if filepath == "":
+    print check_filepath
+    
+    if check_filepath == False:
         
         message = 'Please choose file first.'
         
@@ -152,6 +159,7 @@ if save_load_option == "Load channel usage configuration":
             
             linecount+=1
             
-display.getWidget("configuration_message").setPropertyValue("text", message)
-                    
+display.getWidget("configuration_message").setPropertyValue("text", "%s" % message)
+
+widget.getPVByName("loc://save_load_configs").setValue("")
                     

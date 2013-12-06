@@ -6,7 +6,6 @@ check_eemem_boxarray =[]
 eemem_message = display.getWidget("eemem_message")
 filepath = display.getWidget("eemem_cards_cal_file").getValue()
 set_eemem = display.getWidget("eemem_choice").getPV()
-print set_eemem
 set_eemem_choice = PVUtil.getString(set_eemem)
 
 def is_number(s):
@@ -130,12 +129,12 @@ elif set_eemem_choice == "Cards":
                     cards_ch_indices = [i for i,val in enumerate(cal_card_array) if val == new_cards_parts[count0]]
                     
                     count1 = 0
-                    calc_record_fields=["A","B","C","D","E","F","G","H"]
                     
                     while count1 < 8:
                     
-                        display.getWidget("set_eemem").getPVByName("CB:CB:HV:BOX:%s:SetM%s.%s" % (cardscount, count0, calc_record_fields[count1])).setValue("%s" % (cal_gradient_array[cards_ch_indices[count1]]))
-                        display.getWidget("set_eemem").getPVByName("CB:CB:HV:BOX:%s:SetN%s.%s" % (cardscount, count0, calc_record_fields[count1])).setValue("%s" % (cal_offset_array[cards_ch_indices[count1]]))
+                        display.getWidget("set_eemem").getPVByName("CB:CB:HV:BOX:%s:WriteM%s_%s" % (cardscount, count0, count1)).setValue("%s" % (cal_gradient_array[cards_ch_indices[count1]]))
+                        display.getWidget("set_eemem").getPVByName("CB:CB:HV:BOX:%s:WriteN%s_%s" % (cardscount, count0, count1)).setValue("%s" % (cal_offset_array[cards_ch_indices[count1]]))
+                        
                         count1+=1
                         
                     count0+=1
@@ -143,21 +142,7 @@ elif set_eemem_choice == "Cards":
 
                 
                 display.getWidget("set_eemem").getPVByName("CB:CB:HV:BOX:%s:UnprotectEememCards" % (cardscount)).setValue("go")                
-                display.getWidget("set_eemem").getPVByName("CB:CB:HV:BOX:%s:SetCards" % (cardscount)).setValue("%s" % new_cards)
-                display.getWidget("set_eemem").getPVByName("CB:CB:HV:BOX:%s:SetM0.VAL" % (cardscount)).setValue("0")
-                display.getWidget("set_eemem").getPVByName("CB:CB:HV:BOX:%s:SetM1.VAL" % (cardscount)).setValue("0")
-                display.getWidget("set_eemem").getPVByName("CB:CB:HV:BOX:%s:SetM2.VAL" % (cardscount)).setValue("0")
-                display.getWidget("set_eemem").getPVByName("CB:CB:HV:BOX:%s:SetM3.VAL" % (cardscount)).setValue("0")
-                display.getWidget("set_eemem").getPVByName("CB:CB:HV:BOX:%s:SetM4.VAL" % (cardscount)).setValue("0")
-                display.getWidget("set_eemem").getPVByName("CB:CB:HV:BOX:%s:SetN0.VAL" % (cardscount)).setValue("0")
-                display.getWidget("set_eemem").getPVByName("CB:CB:HV:BOX:%s:SetN1.VAL" % (cardscount)).setValue("0")
-                display.getWidget("set_eemem").getPVByName("CB:CB:HV:BOX:%s:SetN2.VAL" % (cardscount)).setValue("0")
-                display.getWidget("set_eemem").getPVByName("CB:CB:HV:BOX:%s:SetN3.VAL" % (cardscount)).setValue("0")
-                display.getWidget("set_eemem").getPVByName("CB:CB:HV:BOX:%s:SetN4.VAL" % (cardscount)).setValue("0")
-                display.getWidget("set_eemem").getPVByName("CB:CB:HV:BOX:%s:ReloadEememCards" % (cardscount)).setValue("go")
-                display.getWidget("set_eemem").getPVByName("CB:CB:HV:BOX:%s:ProtectEememCards" % (cardscount)).setValue("go")
-                display.getWidget("set_eemem").getPVByName("CB:CB:HV:BOX:%s:PrintEememCards" % (cardscount)).setValue("go")
-                    
+                display.getWidget("set_eemem").getPVByName("CB:CB:HV:BOX:%s:SetCards" % (cardscount)).setValue("%s" % new_cards)                   
             if empty_cards == numberofboxes:
                 
                eemem_message.setPropertyValue("text", "Enter at least 1 new set of cards.")
@@ -293,7 +278,7 @@ elif set_eemem_choice == "General values":
     while count < numberofboxes:
                 
                 check_eemem_boxarray.append(display.getWidget("eemem_check_box%d" % (count+1)).getValue())
-                count = count + 1  
+                count+=1  
                                    
     one_box_checked = True in check_eemem_boxarray
     
@@ -327,7 +312,7 @@ elif set_eemem_choice == "General values":
                 array_value = str(array_value)
                 eemem_valuearray.append(array_value)
                 
-            count1 = count1 + 1
+            count1+=1
             
         if len(eemem_valuearray) == 0:
             
@@ -351,11 +336,11 @@ elif set_eemem_choice == "General values":
                        
                         display.getWidget("set_eemem").getPVByName("CB:CB:HV:BOX:%s:Set%s" % (count2+1, eemem_set_valuearray[0])).setValue("%s" % eemem_set_valuearray[1])
                         
-                        count3 = count3 + 1
+                        count3+=1
                             
                     display.getWidget("set_eemem").getPVByName("CB:CB:HV:BOX:%s:ReloadEemem" % (count2+1)).setValue("go")
                     display.getWidget("set_eemem").getPVByName("CB:CB:HV:BOX:%s:ProtectEemem" % (count2+1)).setValue("go")
                     display.getWidget("set_eemem").getPVByName("CB:CB:HV:BOX:%s:PrintEemem" % (count2+1)).setValue("go")
                       
-                count2 = count2 + 1
+                count2+=1
        
