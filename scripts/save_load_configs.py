@@ -29,7 +29,7 @@ if save_load_option == "Save voltage configuration":
         
         f= open(file, "w")        
         
-        box = 19        
+        box = 1        
         
         while box < 20:
             
@@ -53,6 +53,9 @@ if save_load_option == "Save voltage configuration":
             
         f.close()
         
+        filename_pv.setValue("")
+        filepath_pv.setValue("")
+        
 if save_load_option == "Save channel usage configuration":
     
     filepath_pv = display.getWidget("save_load_configs_filepath").getPV()
@@ -73,7 +76,7 @@ if save_load_option == "Save channel usage configuration":
         
         f= open(file, "w")        
         
-        box = 19        
+        box = 1        
         
         while box < 20:
             
@@ -96,6 +99,9 @@ if save_load_option == "Save channel usage configuration":
             box+=1
             
         f.close()
+        
+        filename_pv.setValue("")
+        filepath_pv.setValue("")
         
 if save_load_option == "Load voltage configuration":
     
@@ -124,6 +130,8 @@ if save_load_option == "Load voltage configuration":
             voltage = voltage_pv.setValue(lineparts[3])
             
             linecount+=1
+            
+        filepath_pv.setValue("")
             
 if save_load_option == "Load channel usage configuration":
     
@@ -159,6 +167,8 @@ if save_load_option == "Load channel usage configuration":
             
             linecount+=1
             
+        filepath_pv.setValue("")
+        
 display.getWidget("configuration_message").setPropertyValue("text", "%s" % message)
 
 widget.getPVByName("loc://save_load_configs").setValue("")

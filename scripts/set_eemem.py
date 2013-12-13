@@ -4,7 +4,6 @@ import os, time
 numberofboxes = 19
 check_eemem_boxarray =[]
 eemem_message = display.getWidget("eemem_message")
-filepath = display.getWidget("eemem_cards_cal_file").getValue()
 set_eemem = display.getWidget("eemem_choice").getPV()
 set_eemem_choice = PVUtil.getString(set_eemem)
 
@@ -28,6 +27,8 @@ elif set_eemem_choice == "Cards":
     cards_message =""
     
     ################ check if calibration file exists #################
+    
+    filepath = display.getWidget("eemem_cards_cal_file").getValue()
             
     check_filepath = os.path.isfile(filepath)
             
@@ -142,7 +143,7 @@ elif set_eemem_choice == "Cards":
 
                 
                 display.getWidget("set_eemem").getPVByName("CB:CB:HV:BOX:%s:UnprotectEememCards" % (cardscount)).setValue("go")                
-                display.getWidget("set_eemem").getPVByName("CB:CB:HV:BOX:%s:SetCards" % (cardscount)).setValue("%s" % new_cards)                   
+                display.getWidget("set_eemem").getPVByName("CB:CB:HV:BOX:%s:SetCardsAndMN" % (cardscount)).setValue("%s" % new_cards)                   
             if empty_cards == numberofboxes:
                 
                eemem_message.setPropertyValue("text", "Enter at least 1 new set of cards.")
@@ -293,8 +294,6 @@ elif set_eemem_choice == "General values":
         count1 = 0
         
         while count1 < len(eemem_values):
-            
-            print count1
             
             name = display.getWidget("Set%s" % eemem_values[count1]).getPV()
             eemem_value = eemem_values[count1]

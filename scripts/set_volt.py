@@ -78,7 +78,7 @@ else:
                 line = file_element_voltages[count].split()
                 file_elementarray.append(int(line[0]))
                 file_voltagearray.append(int(line[1]))  
-                count = count + 1
+                count+=1
                 
             element_exists = widget.getPVByName("CB:CB:HV:ELEMENT:%s:SetVolt" % element)
             file_element_voltage_exist = element in file_elementarray
@@ -114,7 +114,7 @@ else:
         while boxcount < numberofboxes:
             
             check_boxarray.append(display.getWidget("check_box%d" % (boxcount+1)).getValue())
-            boxcount = boxcount + 1
+            boxcount+=1
             
             if check_boxarray[boxcount-1] == True:
                 
@@ -147,11 +147,11 @@ else:
                         
                     if check_boxarray[boxcount] == False:
                         
-                        boxcount = boxcount + 1
+                        boxcount+=1
                     
                     elif check_boxarray[boxcount] == True:
                     
-                        boxcount = boxcount + 1
+                        boxcount+=1
                         
                         level = 0
                         
@@ -166,13 +166,13 @@ else:
                                 if box_channel_exists != None:
                                     
                                     box_channel_exists.setValue(voltage)
-                                    channel = channel + 1
+                                    channel+=1
                                     
                                 if box_channel_exists == None:
                                     
-                                    channel = channel + 1
+                                    channel+=1
                                     
-                            level = level + 1                
+                            level+=1                
      
         ######################## Box -> File ###########################
         
@@ -214,20 +214,20 @@ else:
                         line = file_element_voltages[count].split()
                         file_element = int(line[0])
                         file_voltage = int(line[1])
-                        element_channel_pv = widget.getPVByName("CB:CB:HV:ELEMENT:%s:SetVolt.DESC" % file_element)
+                        element_channel_pv = widget.getPVByName("CB:CB:HV:ELEMENT:%s:Channel" % file_element) 
                         
                         if element_channel_pv != None:
                         
-                            box_level_channel = PVUtil.getString(elemnt_channel_pv)
+                            box_level_channel = PVUtil.getString(element_channel_pv)
                             parts = box_level_channel.split(":")
-                            box = parts[0]
+                            box = int(parts[0])
                             check_element_selected_box = box in checked_boxes_numberarray
                             
                             if check_element_selected_box == True:
                                 
                                 widget.getPVByName("CB:CB:HV:ELEMENT:%s:SetVolt" % file_element).setValue(file_voltage)
                             
-                        count = count + 1
+                        count+=1
                         
                     message.setPropertyValue("text", "")
 ###################################### Channel -> selected Value ############################
@@ -331,19 +331,22 @@ else:
                     line = file_element_voltages[count].split()
                     file_elementarray.append(int(line[0]))
                     file_voltagearray.append(int(line[1]))  
-                    count = count + 1
+                    count+=1
                 
                                           
-                    message.setPropertyValue("text", "")
-                    ch_element_pv = widget.getPVByName("CB:CB:HV:BOX:%s:%s:%s:SetVolt.DESC" % (ch_box, ch_level, ch_channel))
-                    ch_element = PVUtil.getString(ch_element_pv)
-                    check_element_file = ch_element in file_elementarray
-                    
-                    if check_element_file == True:
-                        
-                        file_voltage_index = file_elementarray.index(ch_element)
-                        file_voltage = file_voltagearray[file_voltage_index]
-                        ch_exists.setValue(file_voltage)
+                message.setPropertyValue("text", "")
+                ch_element_pv = widget.getPVByName("CB:CB:HV:BOX:%s:%s:%s:Element" % (ch_box, ch_level, ch_channel))                
+                ch_element = PVUtil.getString(ch_element_pv)
+                ch_element = int(ch_element)
+                check_element_file = ch_element in file_elementarray
+                
+                print check_element_file
+                
+                if check_element_file == True:
+                    ch_exists = widget.getPVByName("CB:CB:HV:BOX:%s:%s:%s:SetVolt" % (ch_box, ch_level, ch_channel))
+                    file_voltage_index = file_elementarray.index(ch_element)
+                    file_voltage = file_voltagearray[file_voltage_index]
+                    ch_exists.setValue(file_voltage)
                         
 ################################# from file ###########################
 
@@ -374,7 +377,7 @@ else:
                     
                     pv.setValue(file_voltage)
                     
-                count = count + 1
+                count+=1
                             
         else:
         

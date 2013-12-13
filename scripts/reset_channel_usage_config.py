@@ -1,6 +1,6 @@
 from org.csstudio.opibuilder.scriptUtil import PVUtil
 
-box = 19
+box = 1
 
 while box < 20:
     

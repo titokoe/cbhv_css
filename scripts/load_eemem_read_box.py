@@ -8,6 +8,8 @@ pvvalue = display.getWidget("eemem_read_box_combo").getValue()
 
 pvname = int(pvvalue)
 
+print pvname
+
 macroInput.put("BOXNO", "%s" % pvname)
 
 widgetController.setPropertyValue("macros", macroInput)
